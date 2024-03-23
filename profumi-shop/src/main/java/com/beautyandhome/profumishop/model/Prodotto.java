@@ -1,40 +1,49 @@
-package com.profumishop.model;
+package com.beautyandhome.profumishop.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "prodotti")
 public class Prodotto {
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
     private String nome;
     private String descrizione;
     private double prezzo;
+    private Integer quantita;
     private String categoria;
-    private String immagini;
+    private String immagine;
 
-    // Costruttore
-    public Prodotto(Integer id, String nome, String descrizione, double prezzo, String categoria, String immagini) {
-    	this.id = id;
+    // Constructor
+    public Prodotto() {
+    }
+
+    public Prodotto(int id, String nome, String descrizione, double prezzo, Integer quantita, String categoria, String immagine) {
+        this.id = id;
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
+        this.quantita = quantita;
         this.categoria = categoria;
-        this.immagini = immagini;
+        this.immagine = immagine;
     }
 
-    public String getImmagini() {
-		return immagini;
-	}
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
 
-	public void setImmagini(String immagini) {
-		this.immagini = immagini;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getNome() {
+    public String getNome() {
         return nome;
     }
 
@@ -58,11 +67,27 @@ public class Prodotto {
         this.prezzo = prezzo;
     }
 
+    public Integer getQuantita() {
+        return quantita;
+    }
+
+    public void setQuantita(Integer quantita) {
+        this.quantita = quantita;
+    }
+
     public String getCategoria() {
         return categoria;
     }
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public String getImmagine() {
+        return immagine;
+    }
+
+    public void setImmagine(String immagine) {
+        this.immagine = immagine;
     }
 }

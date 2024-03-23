@@ -1,4 +1,4 @@
-package com.profumishop.service;
+package com.beautyandhome.profumishop.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,16 +8,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.profumishop.model.Prodotto;
+import com.beautyandhome.profumishop.model.Prodotto;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProdottoService {
+    @Value("${spring.datasource.url}")
+    private String url;
+
+    @Value("${spring.datasource.username}")
+    private String username;
+
+    @Value("${spring.datasource.password}")
+    private String password;
 	
 	// Metodo per recuperare tutti i prodotti dalla tabella "prodotto"
     public List<Prodotto> getAllProdotti() {
         List<Prodotto> prodotti = new ArrayList<>();
-        String query = "SELECT * FROM prodotto";
+        String query = "SELECT * FROM prodotti";
 
-        try (Connection conn = DriverManager.getConnection("url_del_tuo_database", "username", "password");
+        try (Connection conn = DriverManager.getConnection(url, username, password);
              PreparedStatement statement = conn.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
 
@@ -27,9 +38,11 @@ public class ProdottoService {
                 String nome = resultSet.getString("nome");
                 String descrizione = resultSet.getString("descrizione");
                 double prezzo = resultSet.getDouble("prezzo");
-                String marca = resultSet.getString("marca");
+                Integer quantita = resultSet.getInt("quantita");
+                String categoria = resultSet.getString("categoria");
+                String immagine = resultSet.getString("immagine");
 
-                Prodotto prodotto = new Prodotto(id, nome, prezzo, descrizione, categoria, immagini);
+                Prodotto prodotto = new Prodotto( id, nome, descrizione, prezzo, quantita, categoria, immagine);
                 prodotti.add(prodotto);
             }
         } catch (SQLException e) {

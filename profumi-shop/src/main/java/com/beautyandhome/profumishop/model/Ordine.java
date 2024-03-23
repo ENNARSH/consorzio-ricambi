@@ -1,10 +1,19 @@
-package com.profumishop.model;
+package com.beautyandhome.profumishop.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Ordine {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
     private String nome;
     private String cognome;
     private String indirizzo;
@@ -16,13 +25,8 @@ public class Ordine {
     private LocalDate dataOrdine;
     private BigDecimal totale;
 
-    public Ordine() {
-        // Costruttore vuoto
-    }
-
-    public Ordine(Integer id, String nome, String cognome, String indirizzo, String cap, String provincia, String comune,
-                  String telefono, String email, LocalDate dataOrdine, BigDecimal totale) {
-        this.id = id;
+    // Costruttore con firma
+    public Ordine(String nome, String cognome, String indirizzo, String cap, String provincia, String comune, String telefono, String email, LocalDate dataOrdine, BigDecimal totale) {
         this.nome = nome;
         this.cognome = cognome;
         this.indirizzo = indirizzo;
@@ -35,6 +39,11 @@ public class Ordine {
         this.totale = totale;
     }
 
+    // Costruttore vuoto per JPA
+    public Ordine() {
+    }
+
+    // Getters and Setters
     public Integer getId() {
         return id;
     }
