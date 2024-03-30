@@ -14,7 +14,10 @@ public interface ProdottoRepo extends JpaRepository<Prodotto, Long>{
 	//https://docs.spring.io/spring-data/jpa/docs/current/reference/html/ (cap 4)
 	
 	List<Prodotto> findProdottoByNome(String nome);
-	
+
+	List<Prodotto> findProdottoByCategoria(String categoria);
+
+
 	//long countByLastname(String lastname);
 	//List<Person> findDistinctPeopleByLastnameOrFirstname(String lastname, String firstname);
 	//List<Person> findByLastnameIgnoreCase(String lastname);

@@ -24,4 +24,9 @@ public class ProdottoController {
     public List<Prodotto> getAllProdotti() {
         return prodottoService.getAllProdotti();
     }
+
+    @GetMapping("/filtered")
+    public List<Prodotto> getAllProdottiFiltered(String categoria) {
+        return prodottoService.getAllProdottiFiltered(categoria);
+    }
 }
