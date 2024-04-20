@@ -39,11 +39,11 @@ public class ProdottoService {
                 String nome = resultSet.getString("nome");
                 String descrizione = resultSet.getString("descrizione");
                 double prezzo = resultSet.getDouble("prezzo");
-                Integer quantita = resultSet.getInt("quantita");
+                Integer ml = resultSet.getInt("ml");
                 String categoria = resultSet.getString("categoria");
                 String immagine = resultSet.getString("immagine");
 
-                Prodotto prodotto = new Prodotto( id, nome, descrizione, prezzo, quantita, categoria, immagine);
+                Prodotto prodotto = new Prodotto( id, nome, descrizione, prezzo, ml, categoria, immagine);
                 prodotti.add(prodotto);
             }
         } catch (SQLException e) {
@@ -84,11 +84,11 @@ public class ProdottoService {
                 String nome = resultSet.getString("nome");
                 String descrizione = resultSet.getString("descrizione");
                 double prezzo = resultSet.getDouble("prezzo");
-                Integer quantita = resultSet.getInt("quantita");
+                Integer ml = resultSet.getInt("ml");
                 String categoria = resultSet.getString("categoria");
                 String immagine = resultSet.getString("immagine");
 
-                Prodotto prodotto = new Prodotto( id, nome, descrizione, prezzo, quantita, categoria, immagine);
+                Prodotto prodotto = new Prodotto( id, nome, descrizione, prezzo, ml, categoria, immagine);
                 prodotti.add(prodotto);
             }
         } catch (SQLException e) {
@@ -116,11 +116,11 @@ public class ProdottoService {
                 String nome = resultSet.getString("nome");
                 String descrizione = resultSet.getString("descrizione");
                 double prezzo = resultSet.getDouble("prezzo");
-                Integer quantita = resultSet.getInt("quantita");
+                Integer ml = resultSet.getInt("ml");
                 String categoria = resultSet.getString("categoria");
                 String immagine = resultSet.getString("immagine");
 
-                Prodotto prodotto = new Prodotto( id, nome, descrizione, prezzo, quantita, categoria, immagine);
+                Prodotto prodotto = new Prodotto( id, nome, descrizione, prezzo, ml, categoria, immagine);
                 prodotti.add(prodotto);
             }
         } catch (SQLException e) {

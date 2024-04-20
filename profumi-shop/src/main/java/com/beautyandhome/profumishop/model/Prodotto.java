@@ -16,7 +16,7 @@ public class Prodotto {
     private String nome;
     private String descrizione;
     private double prezzo;
-    private Integer quantita;
+    private Integer ml;
     private String categoria;
     private String immagine;
 
@@ -24,12 +24,12 @@ public class Prodotto {
     public Prodotto() {
     }
 
-    public Prodotto(int id, String nome, String descrizione, double prezzo, Integer quantita, String categoria, String immagine) {
+    public Prodotto(int id, String nome, String descrizione, double prezzo, Integer ml, String categoria, String immagine) {
         this.id = id;
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-        this.quantita = quantita;
+        this.ml = ml;
         this.categoria = categoria;
         this.immagine = immagine;
     }
@@ -67,12 +67,12 @@ public class Prodotto {
         this.prezzo = prezzo;
     }
 
-    public Integer getQuantita() {
-        return quantita;
+    public Integer getMl() {
+        return ml;
     }
 
-    public void setQuantita(Integer quantita) {
-        this.quantita = quantita;
+    public void setMl(Integer ml) {
+        this.ml = ml;
     }
 
     public String getCategoria() {

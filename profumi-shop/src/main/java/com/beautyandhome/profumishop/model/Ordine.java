@@ -13,7 +13,6 @@ public class Ordine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
     private String nome;
     private String cognome;
     private String indirizzo;
@@ -131,4 +130,5 @@ public class Ordine {
     public void setTotale(BigDecimal totale) {
         this.totale = totale;
     }
+
 }
