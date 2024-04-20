@@ -1,9 +1,10 @@
 package com.beautyandhome.profumishop.controller;
 
+import com.beautyandhome.profumishop.model.ApiMessage;
 import com.beautyandhome.profumishop.model.OrdineCompleto;
 import com.beautyandhome.profumishop.service.OrdineService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,9 +21,11 @@ public class OrdineController {
     }
 
     @PostMapping
-    public ResponseEntity<String> salvaOrdine(@RequestBody OrdineCompleto ordineCompleto) {
+    public ResponseEntity<ApiMessage> salvaOrdine(@RequestBody OrdineCompleto ordineCompleto) {
         ordineService.salvaOrdineCompleto(ordineCompleto);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Ordine salvato con successo");
+        ApiMessage message = new ApiMessage();
+        message.setMessage("Ordine salvato con successo");
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(message);
     }
 
 }
