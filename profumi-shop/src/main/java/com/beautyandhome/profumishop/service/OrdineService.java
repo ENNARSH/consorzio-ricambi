@@ -51,7 +51,7 @@ public class OrdineService {
 
 
     public Integer salvaOrdine(Ordine ordine) {
-        String queryOrdine = "INSERT INTO ordini (nome, cognome, indirizzo, cap, provincia, comune, telefono, email, data_ordine, totale) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String queryOrdine = "INSERT INTO ordini (nome, cognome, indirizzo, cap, provincia, comune, telefono, email, data_ordine, totale, metodo_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
         try (Connection conn = DriverManager.getConnection(url, username, password);
@@ -66,6 +66,7 @@ public class OrdineService {
             statementOrdine.setString(8, ordine.getEmail());
             statementOrdine.setObject(9, LocalDate.now());
             statementOrdine.setBigDecimal(10, ordine.getTotale());
+            statementOrdine.setString(11, ordine.getMetodoPagamento());
 
             int affectedRows = statementOrdine.executeUpdate();
 
